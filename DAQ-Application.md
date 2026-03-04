@@ -114,7 +114,6 @@ Likely sources:
 Signature:
 - Defocus (Z4) dominant
 - Often correlated with uniform temperature or CTE-driven expansion
-
 Likely sources:
 - Barrel / bench expansion
 - Secondary spacing change
@@ -124,7 +123,6 @@ Signature:
 - Astigmatism (Z5/Z6) dominant (2-lobed)
 - Sometimes plus coma depending on constraint geometry
 - Strong correlation with strain gauges or gravity vector
-
 Likely sources:
 - Over-constraint in mounts
 - Gravity sag in one axis
@@ -134,7 +132,6 @@ Signature:
 - Mid/high-order Zernikes elevated
 - Spatial WFE map shows localized features
 - PSD shows more mid/high-frequency energy
-
 Likely sources:
 - Thermoelastic figure change
 - Print-through from supports
@@ -153,29 +150,23 @@ Likely sources:
 Step 1: Preprocess
 - Align pupil / register WFE maps
 - Remove piston; optionally remove mean tilt if needed
-
 Step 2: Decompose
 - Fit Zernike: Z_k(t)
 - Compute: RMS(t), PV(t), PSD(f), symmetry metrics
-
 Step 3: Classify signature
 - Low-order dominated? -> alignment / spacing / sag
 - Astig-heavy?         -> mount stress / bench bend
 - Mid/high-order heavy?-> surface figure / print-through
 - Strong time tones?   -> vibration source
-
 Step 4: Correlate with DAQ
 - Corr(Z_k, T_i), Corr(Z_k, a_i), Corr(Z_k, g_i)
 - Look for time lag (thermal) vs instantaneous (vibration)
-
 Step 5: Hypothesis ranking
 - Choose top N causes
 - Convert to param vector p for model rebuild
 
 ## 6. Error Model Rebuild (Parametric + Fit)
-
 Define a compact error state vector (example):
-
 p = [
   θx, θy,            # rigid-body tilt
   dx, dy, dz,        # decenter / spacing
@@ -211,23 +202,18 @@ Random spikes (non-physical)	voltage/ground	EMI / grounding
 6) Minimal Test Steps (Paste-Ready)
 1) Baseline
    - Record WFE(x,y,t) + DAQ sensors at steady state
-
 2) Thermal Step
    - Apply controlled ΔT (uniform + gradient)
    - Record WFE + T_i(t) to map thermal sensitivities
-
 3) Vibration Sweep
    - Inject sine / random vibration (or measure operational)
    - Record WFE + a_i(t) to find jitter coupling
-
 4) Gravity / Orientation
    - Rotate / change elevation (if possible)
    - Record WFE + strain to identify sag modes
-
 5) Alignment Perturbation
    - Known small tilt/decenter (if allowed)
    - Confirm signature library (coma/tilt mapping)
-
 6) Rebuild + Validate Model
    - Fit p using the collected dataset
    - Predict WFE under new condition and verify
