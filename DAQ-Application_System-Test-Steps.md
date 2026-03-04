@@ -217,3 +217,4 @@ Random spikes (non-physical)	voltage/ground	EMI / grounding
 6) Rebuild + Validate Model
    - Fit p using the collected dataset
    - Predict WFE under new condition and verify
+##### 通常的判断思路是先看测得的波前形状并做 Zernike 分解，如果主要是 Tilt（Z2/Z3）像一个斜坡，一般先怀疑光轴或镜子倾斜，再看振动或指向数据，如果 tilt 随振动变化说明是机械抖动，如果稳定不变多半是装调偏差；如果主要是 Defocus（Z4）呈圆对称弯曲，通常意味着光学间距变化，再检查温度传感器，如果 defocus 随温度线性变化基本可以确定是结构热膨胀导致焦距漂移；如果主要是 Astigmatism（Z5/Z6）呈两瓣形状，通常与结构应力或重力挠曲有关，可以改变系统姿态或看应变计，如果 astig 随重力方向变化就是结构弯曲；如果出现明显 Coma（Z7/Z8）像彗星尾巴，一般说明光学元件偏心或倾斜，再判断它是否随温度或振动变化来区分是装调误差还是热结构变形；如果波前中出现大量高阶 Zernike 或局部起伏，则更可能是镜面或透镜的表面形变，再结合温度梯度或结构传感器判断是否为热弹性变形，总体来说就是先通过波前模式判断误差类型，再结合 DAQ 的温度、振动和应变数据做相关分析，逐步缩小范围并最终确定具体的物理误差来源。
