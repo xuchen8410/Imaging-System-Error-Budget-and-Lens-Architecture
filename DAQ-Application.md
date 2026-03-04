@@ -36,3 +36,72 @@ DAQ采集的信号
 | Strain gauge      | 结构形变  |
 | Accelerometer     | 振动    |
 | Voltage monitor   | 电源稳定性 |
+
+
+## 3. Wavefront-Based Error Diagnosis in Optical Systems  
+### DAQ + Wavefront Analysis + Error Modeling Workflow
+This document summarizes how measured **wavefront distortions** can be used to diagnose the **physical source of optical errors** in aerospace optical systems.  
+The workflow integrates:
+- Data Acquisition (DAQ)
+- Wavefront sensing
+- Zernike decomposition
+- Error source identification
+- Model reconstruction and validation
+  
+##  4.System Measurement Architecture
+
+# Wavefront-Based Error Diagnosis + Error Model Rebuild (DAQ / WFS / Zernike)
+
+Goal: Use **measured wavefront shape** (WFE map / Zernike) + **DAQ sensors** (T, accel, strain) to:
+1) infer **which physical part** caused the error, and  
+2) rebuild a **parametric error model** for simulation / STOP / tolerance.
+
+---
+
+## 1) End-to-End Architecture (Measurement → Diagnosis → Model Update)
+
+```text
+[Optical Hardware]
+ (Components mounts, structure, detector)
+            |
+            v
+[Disturbances Applied / Occurring]
+ (thermal gradient, vibration, gravity vector, alignment shift)
+            |
+            v
+[Measurements]
+  - Wavefront Sensor / Phase Retrieval  -> WFE(x,y,t)
+  - DAQ sensors (sync time-stamped)
+      * Temperature T_i(t)
+      * Accelerometer a_i(t)
+      * Strain g_i(t)
+      * Power/voltage monitors
+            |
+            v
+[Wavefront Feature Extraction]
+  - Remove piston
+  - Zernike fit: Z_k(t)
+  - Spatial features: RMS, PV, PSD bands, symmetry metrics
+            |
+            v
+[Root-Cause Inference]
+  - "Mode → Mechanism" mapping
+  - Multi-sensor correlation (Z_k vs T/a/g)
+  - Hypothesis ranking + parameter estimation
+            |
+            v
+[Error Model Rebuild]
+  - Build parametric error state vector p
+    (tilts, decenters, spacing, figure modes, thermal modes)
+  - Forward model: WFE_pred(p)
+  - Fit p via least squares / Bayesian
+            |
+            v
+[Validation Loop]
+  - Compare WFE_pred vs WFE_meas
+  - Update priors / regularization / coupling
+  - Freeze into STOP / Monte-Carlo tolerance model
+
+
+
+'''
