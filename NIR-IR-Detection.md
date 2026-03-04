@@ -1,3 +1,117 @@
+ **Physics → Materials → Detector → Noise → Optical System → Performance Modeling → System Architecture** 组织。
+# 1 Infrared Radiation Physics
+红外探测的基础来自 **热辐射物理 (Thermal Radiation)**。
+
+## 1.1 普朗克黑体辐射
+目标辐射功率由 Planck 定律决定：
+\[
+L_\lambda(T)=\frac{2hc^2}{\lambda^5}\frac{1}{e^{hc/\lambda kT}-1}
+\]
+其中：
+|符号|含义|
+|---|---|
+|h|Planck 常数|
+|c|光速|
+|k|Boltzmann 常数|
+|T|目标温度|
+|λ|波长|
+
+### Wien 位移定律
+\[
+\lambda_{max} = \frac{2898}{T} (\mu m\cdot K)
+\]
+典型情况：
+|目标|峰值波段|
+|---|---|
+|导弹尾焰 (~1000K)|MWIR|
+|飞机机体 (~300K)|LWIR|
+|地面背景|LWIR|
+# 2 大气窗口 (Atmospheric Windows)
+红外系统主要工作在两个窗口：
+|波段|范围|特点|
+|---|---|---|
+|MWIR|3–5 µm|高温目标对比度高|
+|LWIR|8–12 µm|常温目标探测|
+原因：
+- CO₂ / H₂O 吸收较小
+- 大气透过率高
+
+# 3 红外探测器材料
+
+红外探测器材料决定系统性能。
+
+## 3.1 HgCdTe (MCT)
+
+最重要的红外材料之一。
+特点：
+- 可调 bandgap
+- MWIR / LWIR 可覆盖
+- 极高探测率 D*
+材料特性：
+\[
+E_g(x)= -0.302 + 1.93x - 0.81x^2
+\]
+通过调整 **Cd 组分 x** 控制波段。
+缺点：
+- 暗电流高
+- 需要 **77K 低温冷却**
+暗电流：
+\[
+I_d \propto e^{-E_g/kT}
+\]
+温度降低 → 暗电流指数下降。
+
+## 3.2 InSb
+典型 MWIR 探测器。 特性：
+|参数|说明|
+|---|---|
+|波段|3–5 µm|
+|响应速度|很快|
+|噪声|较低|
+|冷却|需要|
+应用：
+- 高速 IR 成像
+## 3.3 Microbolometer (非制冷)
+常见材料：
+- VOx
+- a-Si
+特点：
+|属性|说明|
+|---|---|
+|波段|LWIR|
+|冷却|不需要|
+|成本|低|
+|速度|较慢|
+
+工作原理：
+
+吸收 IR → 温度变化 → 电阻变化。
+
+热时间常数：
+
+\[
+\tau = \frac{C}{G}
+\]
+C = 热容  
+G = 热导
+τ 越大 → 响应越慢。
+
+## 3.4 Type-II Superlattice (T2SL)
+新一代红外材料：
+InAs / GaSb
+优点：
+- 更低暗电流
+- 抑制 Auger recombination
+- 工艺可控
+未来可能替代 MCT。
+
+# 4 红外探测器结构
+现代 IR 系统主要使用：
+## FPA (Focal Plane Array)
+二维阵列：
+
+
+## 3. 光学设计
 Optical power distribution. TMAs consist of three conic mirrors: a concave primary (M1) that provides most of the converging power, a convex secondary (M2) that typically has negative optical power and relays the pupil, and a concave tertiary (M3) that refocuses the beam to a flat focal plane. In some designs a folding flat (M4) is included to redirect the optical path.
 三镜消像差系统曲率与一阶光学指标关系
 
