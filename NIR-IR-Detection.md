@@ -16,6 +16,8 @@ atmospheric windows:
 | **MWIR** | 3–5 µm     | hot target emission               |
 | **LWIR** | 8–12/14 µm | room-temperature thermal emission |
 
+Transmission chart:
+
 | Material               | Transmission Range | Notes                         |
 | ---------------------- | ------------------ | ----------------------------- |
 | **Fused Silica**       | 0.18 – 3.5 µm      | VIS + NIR                     |
