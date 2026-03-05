@@ -10,6 +10,19 @@
 | **Lateral Chromatic Aberration**      | 色差 | magnification vs wavelength | 离轴   | (m(\lambda))       | 彩色边缘                | field height、dispersion             | apochromatic design                |
 
 ####
+**像差与光学参数关系**
+| 参数                             | 主要影响像差                      |
+| ------------------------------ | --------------------------- |
+| **Aperture / f-number**        | spherical aberration、coma   |
+| **Field of View**              | coma、astigmatism、distortion |
+| **Optical power distribution** | field curvature             |
+| **Stop location**              | coma、distortion             |
+| **Wavelength band**            | chromatic aberrations       |
+| **Principal plane location**   | distortion、field curvature  |
+| **Lens symmetry**              | coma、distortion             |
+
+
+####
 **主点-** The cardinal points of an optical system include two focal points, two principal points, and two nodal points. These six points describe the first-order imaging properties of a system.
 #####
 **主平面-** Principal planes are reference planes in an optical system where refraction is assumed to occur in the equivalent thin-lens model.
