@@ -1,4 +1,37 @@
- **Physics → Materials → Detector → Noise → Optical System → Performance Modeling → System Architecture** 组织。
+**Physics → Materials → Detector → Noise → Optical System → Performance Modeling → System Architecture** 组织。
+| Band                     | Wavelength Range | Typical Use                         |
+| ------------------------ | ---------------- | ----------------------------------- |
+| **VIS**                  | 0.4 – 0.7 µm     | human vision                        |
+| **NIR (Near IR)**        | **0.7 – 1.4 µm** | fiber optics, night vision          |
+| **SWIR (Short-Wave IR)** | **1.4 – 3 µm**   | imaging through haze, laser sensing |
+| **MWIR (Mid-Wave IR)**   | **3 – 5 µm**     | missile seekers, hot targets        |
+| **LWIR (Long-Wave IR)**  | **8 – 14 µm**    | thermal imaging                     |
+| **VLWIR / FIR**          | >14 µm           | astronomy                           |
+
+
+atmospheric windows:
+| Window   | Range      | Reason                            |
+| -------- | ---------- | --------------------------------- |
+| **SWIR** | 1–2.5 µm   | low atmospheric absorption        |
+| **MWIR** | 3–5 µm     | hot target emission               |
+| **LWIR** | 8–12/14 µm | room-temperature thermal emission |
+
+| Material               | Transmission Range | Notes                         |
+| ---------------------- | ------------------ | ----------------------------- |
+| **Fused Silica**       | 0.18 – 3.5 µm      | VIS + NIR                     |
+| **BK7**                | 0.35 – 2.5 µm      | visible optics                |
+| **Sapphire (Al₂O₃)**   | 0.2 – 5.5 µm       | very strong, missile domes    |
+| **CaF₂**               | 0.2 – 8 µm         | good IR imaging material      |
+| **BaF₂**               | 0.2 – 11 µm        | fragile but wide transmission |
+| **MgF₂**               | 0.12 – 7 µm        | UV → MWIR                     |
+| **Silicon (Si)**       | **1.2 – 7 µm**     | common MWIR optics            |
+| **Germanium (Ge)**     | **2 – 14 µm**      | dominant LWIR material        |
+| **ZnS**                | **0.4 – 12 µm**    | multispectral windows         |
+| **ZnSe**               | **0.5 – 20 µm**    | CO₂ laser optics              |
+| **Chalcogenide glass** | **1 – 14 µm**      | molded IR optics              |
+
+
+
 # 1 Infrared Radiation Physics
 红外探测的基础来自 **热辐射物理 (Thermal Radiation)**。
 
