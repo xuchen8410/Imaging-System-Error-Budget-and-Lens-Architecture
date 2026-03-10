@@ -27,8 +27,12 @@ Engineering guideline： Typical imaging systems target: 1 ≤ Q ≤ 2。 This a
 
 * For incoherent imaging, OTF(fx, fy) = FT{PSF(x, y)} and MTF = abs(OTF). 
 * When subsystems are approximately linear shift-invariant, MTF_total ≈ Π MTF_i (lens × detector × motion, etc.).
-
-## Optical Imaging System Error Budget Table
+* MTF_system(f) = MTF_optics(f) * MTF_pixel(f) * MTF_motion(f) * MTF_detector(f) * MTF_atmosphere(f)
+    - **MTF_optics(f):**  Optical transfer from lens/mirror system (diffraction + aberrations)
+    - **MTF_pixel(f):**   Pixel integration effect; Pixel acts as a spatial low-pass filter
+    - **MTF_motion(f):**  Blur caused by platform motion or vibration, (e.g., spacecraft jitter, pointing instability)
+    - **MTF_detector(f):**  Detector electronics effects (charge diffusion, readout)
+    - **MTF_atmosphere(f):** Atmospheric turbulence and scattering degradation## Optical Imaging System Error Budget Table
 
 | Budget Item | What it Means | Primary Metrics | Plain ASCII Equations / Checks | Typical Design Knobs | Where it Shows Up |
 |--------------|--------------|----------------|--------------------------------|----------------------|------------------|
