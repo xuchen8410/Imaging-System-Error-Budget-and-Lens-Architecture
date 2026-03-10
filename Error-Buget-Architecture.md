@@ -1,3 +1,27 @@
+### Imaging System Error budget
+An optical imaging system “error budget” is most useful when it follows the physics chain wavefront → PSF → OTF/MTF → sampling (Nyquist) → detector/pixel coupling → SNR/task performance, and when each stage has a measurable metric and a clear allocation knob (e.g., f/#, pupil size, defocus, jitter, pixel pitch).
+
+For common camera-lens architectures, principal planes and pupils are the “hidden geometry” that explains why the same focal length can package very differently. 
+* A telephoto objective is explicitly characterized by system focal length longer than overall system length, enabled by placing net positive power up front and net negative power toward the rear;
+* a retrofocus (inverse-telephoto) objective is the “mirror-clearance” inverse: net negative power in front followed by net positive power, producing a back focal distance larger than the focal length. 
+
+For incoherent imaging, OTF(fx, fy) = FT{PSF(x, y)} and MTF = abs(OTF). 
+When subsystems are approximately linear shift-invariant, MTF_total ≈ Π MTF_i (lens × detector × motion, etc.).
+
+## Optical Imaging System Error Budget Table
+
+| Budget Item | What it Means | Primary Metrics | Plain ASCII Equations / Checks | Typical Design Knobs | Where it Shows Up |
+|--------------|--------------|----------------|--------------------------------|----------------------|------------------|
+| **Wavefront Error (WFE)** | Phase / OPD departure from ideal wavefront at exit pupil. Direct driver of diffraction performance. | WFE_rms, OPD_PV, Strehl Ratio (S) | Strehl ≈ exp(-(2π·WFE_rms / λ)^2) | Surface figure, alignment tolerance, defocus, thermal drift, stop location | Broadens PSF, reduces peak intensity, depresses MTF |
+| **PSF (Point Spread Function)** | Image of a point source; system impulse response. | PSF(x,y), FWHM, peak intensity, wing energy | PSF(x,y) ∝ |FT{Pupil}|² (diffraction theory) | f/#, aperture shape, obscuration, WFE, scattering | Image blur kernel; PSF core vs wings affect EE and SNR |
+| **MTF / OTF** | Contrast transfer vs spatial frequency. | MTF(f), MTF50, MTF@Nyquist | OTF = FT{PSF}; MTF = |OTF| | Aberration balancing, stop placement, field correction | Predicts contrast and resolvable detail (lp/mm) |
+| **Optical Cutoff Frequency (fc)** | Diffraction-limited maximum spatial frequency transmitted by optics. | fc (lp/mm) | fc ≈ 1 / (λ·F#) = 2NA / λ (incoherent circular pupil) | F#, wavelength, numerical aperture | Sets theoretical resolution limit of optical system |
+| **Detector Nyquist Frequency (fN)** | Maximum spatial frequency sensor can sample without aliasing. | fN (lp/mm) | fN = 1 / (2p), where p = pixel pitch | Pixel pitch, binning, demosaic | Frequencies above fN alias into lower frequencies |
+| **Sampling Ratio (Q)** | Measures optical resolution vs detector sampling. | Q = fN / fc | Q = (λ·F#) / (2p) | Joint choice of pixel pitch and F# | Q << 1 undersampled; Q ≈ 1 matched; Q > 1 oversampled |
+| **Pixel MTF (Integration Effect)** | Pixel integrates light over finite area (low-pass filtering). | MTF_pixel(f) | 1D: MTF_pixel(f) = sinc(π f w); typically w ≈ p | Pixel size, fill factor, microlens | Reduces high-frequency contrast even with perfect optics |
+| **Encircled / Ensquared Energy** | Energy within a radius (EE) or pixel box (ensquared). Indicates coupling efficiency to detector. | EE(r), Ensquared Energy | EE(r₀) = (1/E) ∫∫ I(r,θ) r dθ dr | Focus, aberrations, scattering, pixel size | Directly affects per-pixel signal and detection sensitivity |
+| **SNR Impact (Imaging Task)** | Contrast loss and energy spreading reduce detection SNR at target frequency. | SNR(f), output contrast | C_out(f) = C_in(f) · MTF_total(f) | Optics MTF, pixel MTF, jitter, detector noise | Lower contrast at target frequency reduces detection margin |
+
 **Optical Aberrations Summary Table：**
 | Aberration                            | Type          | Physical Cause                                         | Field Location | Wavefront Aberration Term        | Typical Image Effect                                | Key System Factors                         | Common Correction                            |
 | ------------------------------------- | ------------- | ------------------------------------------------------ | -------------- | -------------------------------- | --------------------------------------------------- | ------------------------------------------ | -------------------------------------------- |
