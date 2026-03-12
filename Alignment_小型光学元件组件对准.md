@@ -20,7 +20,7 @@ Laser → Iris 1 → Iris 2 → Reference Optical Axis
 - 4  用 retro-reflection 校正 mirror
 - 5  用 point image 优化成像质量
 
-
+```text
 Mechanical reference
       ↓
 Collimated laser reference axis
@@ -36,3 +36,4 @@ Autocollimator tilt correction
 Point-source image optimization
       ↓
 Interferometric fine alignment
+```
