@@ -19,3 +19,20 @@ Laser → Iris 1 → Iris 2 → Reference Optical Axis
 - 3  粗调光学元件
 - 4  用 retro-reflection 校正 mirror
 - 5  用 point image 优化成像质量
+
+
+Mechanical reference
+      ↓
+Collimated laser reference axis
+      ↓
+Iris-based coarse axis definition
+      ↓
+Lens / mirror coarse alignment
+      ↓
+Retro-reflection check
+      ↓
+Autocollimator tilt correction
+      ↓
+Point-source image optimization
+      ↓
+Interferometric fine alignment
