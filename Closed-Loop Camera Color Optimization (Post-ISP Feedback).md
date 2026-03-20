@@ -1,6 +1,6 @@
 ### Overview
 A feedback-based ISP tuning framework that evaluates **final output color** and iteratively updates upstream modules (AWB, CCM, CLUT) using perceptual error metrics.
-- ISP standardizes: Sensor → Display Color Conversion; Converts sensor-native RGB (device-dependent)→ to standard color spaces: sRGB (most common), Adobe RGB, Display P3. Ensures images look consistent across devices- AWB (Auto White Balance): Estimates scene illumination and applies per-channel gains (R/G/B) to neutralize color cast, aligning white/gray to a reference neutral.
+- ISP: It is a device-specific processing pipeline that transforms raw sensor data into standardized color spaces (e.g., sRGB, P3) and perceptually accurate images using methods like AWB, CCM, and CLUT.
 - CCM (Color Correction Matrix): A 3×3 linear transform mapping sensor RGB to a target color space (e.g., standard RGB), correcting spectral mismatch and global color bias.
 - CLUT (Color Lookup Table): A nonlinear color mapping (typically 3D LUT) that refines color rendering—adjusting hue, saturation, and tone beyond linear correction
 ### Problem
