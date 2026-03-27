@@ -1,5 +1,5 @@
-
-Assume primary f1=200mm;R1=400mm
+A Mersenne beam compressor is a two-mirror afocal system where all geometry scales linearly with compression ratio `M`, trading beam diameter for divergence while preserving optical invariant.
+Assume primary f1=200mm;R1=400mm:
 | Commercial family | Compressor magnification (M=D_{out}/D_{in}) | Primary focal length (f_1) (mm) | Secondary focal length (f_2) (mm) | Primary ROC (R_1) (mm) | Secondary ROC (R_2) (mm) | Mirror spacing (d) (mm) |
 | ----------------- | ------------------------------------------: | ------------------------------: | --------------------------------: | ---------------------: | -----------------------: | ----------------------: |
 | 1.5X family       |                                      0.6667 |                           200.0 |                            -133.3 |                  400.0 |                   -266.7 |                    66.7 |
@@ -10,23 +10,10 @@ Assume primary f1=200mm;R1=400mm
 | 8X family         |                                      0.1250 |                           200.0 |                             -25.0 |                  400.0 |                    -50.0 |                   175.0 |
 | 10X family        |                                      0.1000 |                           200.0 |                             -20.0 |                  400.0 |                    -40.0 |                   180.0 |
 
-
-
-| Magnification (M) |     (f_2) |     (R_2) |      (d) |
-| ----------------: | --------: | --------: | -------: |
-|            0.6667 | -133.3 mm | -266.7 mm |  66.7 mm |
-|            0.5000 | -100.0 mm | -200.0 mm | 100.0 mm |
-|            0.3333 |  -66.7 mm | -133.3 mm | 133.3 mm |
-|            0.2500 |  -50.0 mm | -100.0 mm | 150.0 mm |
-|            0.2000 |  -40.0 mm |  -80.0 mm | 160.0 mm |
-|            0.1250 |  -25.0 mm |  -50.0 mm | 175.0 mm |
-|            0.1000 |  -20.0 mm |  -40.0 mm | 180.0 mm |
-
 The compression power, and the bending:
 
 
-## Key Relationships
-
+### Key Relationships
 ### 1) Linear Scaling
 - Secondary mirror properties scale linearly with `M`:
   - `|f2| ∝ M`
@@ -51,16 +38,12 @@ The compression power, and the bending:
 - Beam transformation:
   - Diameter ↓ by factor `M`
   - Divergence ↑ by factor `1/M`
-
 - Optical invariant conserved:
 - D · θ = constant
-- 
 ### 4) Degrees of Freedom
 The system has only **two independent variables**:
 - f1 → sets physical scale
 - M → sets compression ratio
-
-
 Everything else is deterministically derived.
 
 ### 5) Practical Design Insight
@@ -72,11 +55,3 @@ Everything else is deterministically derived.
   - Predictable spacing (`d = f1(1-M)`)
   - Manufacturable mirror powers
   - Compact vs performance trade balance
-
----
-
-## One-Line Summary
-
-> A Mersenne beam compressor is a two-mirror afocal system where all geometry scales linearly with compression ratio `M`, trading beam diameter for divergence while preserving optical invariant.
-
-
