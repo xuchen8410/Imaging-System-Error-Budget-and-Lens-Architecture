@@ -1,5 +1,20 @@
-A Mersenne beam compressor is a two-mirror afocal system where all geometry scales linearly with compression ratio `M`, trading beam diameter for divergence while preserving optical invariant.
-Assume primary f1=200mm;R1=400mm:
+
+> A Mersenne beam compressor is a two-mirror afocal system where all geometry scales linearly with compression ratio `M`, trading beam diameter for divergence while preserving optical invariant.
+
+> M1 (concave) + M2 (convex) compress beam diameter while increasing divergence, with all geometry linearly determined by `f1` and `M`.
+
+>  ## Unified Relations
+For a Mersenne beam compressor defined by primary mirror (M1, concave) with `f1`, `R1` and compression ratio `M = Dout / Din`, all parameters are:
+   - f1 = R1 / 2,
+   - f2 = -M·f1,
+   - -R2 = -M·R1,
+   - d = f1(1 - M),
+   - Dout = M·Din,
+   - θout = θin / M,
+   - Din·θin = Dout·θout
+
+### Assume primary f1=200mm;R1=400mm:
+
 | Commercial family | Compressor magnification (M=D_{out}/D_{in}) | Primary focal length (f_1) (mm) | Secondary focal length (f_2) (mm) | Primary ROC (R_1) (mm) | Secondary ROC (R_2) (mm) | Mirror spacing (d) (mm) |
 | ----------------- | ------------------------------------------: | ------------------------------: | --------------------------------: | ---------------------: | -----------------------: | ----------------------: |
 | 1.5X family       |                                      0.6667 |                           200.0 |                            -133.3 |                  400.0 |                   -266.7 |                    66.7 |
