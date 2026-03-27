@@ -94,8 +94,8 @@
 | Parameter Change | System Impact |
 |----------------|-------------|
 | `R1 ↓` (faster) | ↑ aberrations, ↑ sensitivity |
-| `|R2| ↓` (stronger secondary) | ↑ pupil shift, ↑ aberration correction |
-| `|m2| ↑` | ↓ beam size at M3, ↑ alignment sensitivity |
+| `ABS R2 ↓` (stronger secondary) | ↑ pupil shift, ↑ aberration correction |
+| `ABS m2 ↑` | ↓ beam size at M3, ↑ alignment sensitivity |
 | `R3 adjust` | field flattening + distortion correction |
 
 ---
