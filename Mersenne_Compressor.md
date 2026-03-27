@@ -7,11 +7,12 @@
 For a Mersenne beam compressor defined by primary mirror (M1, concave) with `f1`, `R1` and compression ratio `M = Dout / Din`, all parameters are:
    - f1 = R1 / 2,
    - f2 = -M·f1,
-   - -R2 = -M·R1,
-   - d = f1(1 - M),
+   - R2 = -M·R1,The compression ratio M is simply the absolute curvature ratio:
+   -  M = |R2 / R1|, with R2 = -M·R1.   - d = f1(1 - M),
    - Dout = M·Din,
    - θout = θin / M,
    - Din·θin = Dout·θout
+   - 
 
 ### Assume primary f1=200mm;R1=400mm:
 
@@ -70,3 +71,20 @@ Everything else is deterministically derived.
   - Predictable spacing (`d = f1(1-M)`)
   - Manufacturable mirror powers
   - Compact vs performance trade balance
+ 
+### 6)Commercial reflective families
+| Vendor            | Type                      | Magnifications    | Notes                     |
+| ----------------- | ------------------------- | ----------------- | ------------------------- |
+| Thorlabs          | Reflective (2-mirror)     | 2X, 4X, 6X        | simple spherical mirrors  |
+| Edmund (Canopus)  | Reflective monolithic     | 2X, 3X, 5X        | high precision, broadband |
+| Optical Surfaces  | Off-axis reflective       | custom (1.5–100X) | LIDAR / defense           |
+| Custom (AOS etc.) | Dall-Kirkham / Cassegrain | 1.5–10X+          | engineering systems       |
+
+- In real systems (especially high-end or laser systems), designers routinely use parabolic, aspheric, and even freeform mirrors.
+
+
+#### Reference:
+- 1. https://www.thorlabs.com/reflective-beam-expanders-2x-4x-and-6x
+- 2. https://www.edmundoptics.com/f/canopus-reflective-beam-expanders/38639
+- 3. https://optisurf.com/laser-beam-expanders/
+
