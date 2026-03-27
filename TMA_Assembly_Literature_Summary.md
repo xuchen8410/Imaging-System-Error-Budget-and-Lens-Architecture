@@ -1,0 +1,1 @@
+For TMA alignment, nodal aberration theory and practical alignment literature show that third-order misalignment behavior is dominated (over the used field) by a field-constant coma pattern and a field-linear astigmatism pattern, with a “benign misalignment” subspace that can mask misalignment if you only monitor a limited set of aberration patterns
